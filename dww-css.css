@@ -18,3 +18,27 @@
     width: 24px;
     height: 24px;
 }
+
+/* Standaard code voor tabellen */
+.text-1 td,
+.text-2 td,
+.text-3 td,
+.text-4 td,
+.text-5 td,
+.text-6 td,
+.text-7 td {
+    padding: 1px 8px;
+    border: 1px solid #e6e6e6;
+}
+
+@media screen and (max-width: 767px) {
+    .text-1 table,
+    .text-2 table,
+    .text-3 table,
+    .text-4 table,
+    .text-5 table,
+    .text-6 table,
+    .text-7 table {
+        overflow-x: scroll;
+    }
+}

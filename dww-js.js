@@ -43,15 +43,20 @@ $(document).ready(function() {
 
 			event.preventDefault();
 
-			let succesUrl = window.location.pathname + '?dwwform=succes';
+            let succesUrl = window.location + '?dwwform=succes';
+			let succesUrlPathname = window.location.pathname + '?dwwform=succes';
 
 			if ("ga" in window) {
 				tracker = ga.getAll()[0];
 				if (tracker) {
-					tracker.send('pageview', succesUrl);
+					tracker.send('pageview', succesUrlPathname);
 				}
         	}
 
+            dataLayer.push({
+                'event': 'virtualPageview',
+                'pageUrl': succesUrl
+            });
 		});
 	});
 });

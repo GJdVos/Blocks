@@ -305,7 +305,7 @@ function positionFixedIpSidebar() {
     if (!isMediumViewport()) {
         return;
     }
-
+console.log("TEST");
     var ipSidebars = dwwElements.ipSidebars;
 
     if (ipSidebars.length == 0) {

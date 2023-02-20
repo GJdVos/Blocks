@@ -426,8 +426,14 @@ function addFixedIpSidebarStyles(ipSidebar, i) {
 }
 
 function addAbsoluteIpSidebarStyles(sidebar, i, length) {
-    var sidebarGridRow = dwwStore.ipSidebarFirstElementIndex + i;
-console.log("3: " + dwwStore.ipSidebarFirstElementIndex + " + " + i + " - " + length);
+	if (length == 1) {
+		var sidebarGridRow = dwwStore.ipSidebarFirstElementIndex + i + 2;
+	} else if (length == 2) {
+		var sidebarGridRow = dwwStore.ipSidebarFirstElementIndex + i + 1;
+	} else {
+    	var sidebarGridRow = dwwStore.ipSidebarFirstElementIndex + i;
+	}
+
     var sectionStyles = [
         'grid-row: ' + sidebarGridRow
     ];

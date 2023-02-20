@@ -332,7 +332,7 @@ function positionFixedIpSidebar() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var ipSidebar = ipSidebars[i];
-console.log("1: " + ipSidebar.classList + " - " + i);
+
         if (i == 0) {
             dwwStore.ipSidebarFirstElementHeight = ipSidebar.getBoundingClientRect().height;
         } else if (i == 1) {
@@ -344,7 +344,7 @@ console.log("1: " + ipSidebar.classList + " - " + i);
             ipSidebar.classList.add(dwwClasses.ipSidebarIsSticky);
             ipSidebar.parentNode.parentNode.parentNode.parentNode.classList.add(dwwClasses.ipSidebarIsSticky);
             ipSidebar.removeAttribute('style');
-            addAbsoluteIpSidebarStyles(ipSidebar, i);
+            addAbsoluteIpSidebarStyles(ipSidebar, i, ipSidebars.length);
             continue;
         }
 
@@ -380,7 +380,7 @@ function positionIpSidebarWhenIsFixedOrSticky() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var sidebar = ipSidebars[i];
-console.log("2: " + sidebar.classList + " - " + i);
+
         if (!isMediumViewport()) {
             sidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             sidebar.removeAttribute('style');
@@ -391,7 +391,7 @@ console.log("2: " + sidebar.classList + " - " + i);
         var ipIsSticky = sidebar.classList.contains(dwwClasses.ipSidebarIsSticky);
 
         if (ipIsSticky) {
-            addAbsoluteIpSidebarStyles(sidebar, i);
+            addAbsoluteIpSidebarStyles(sidebar, i, ipSidebars.length);
         }
 
         if (ipIsFixed) {
@@ -425,9 +425,9 @@ function addFixedIpSidebarStyles(ipSidebar, i) {
     ipSidebar.setAttribute('style', styles);
 }
 
-function addAbsoluteIpSidebarStyles(sidebar, i) {
+function addAbsoluteIpSidebarStyles(sidebar, i, length) {
     var sidebarGridRow = dwwStore.ipSidebarFirstElementIndex + i;
-console.log("3: " + dwwStore.ipSidebarFirstElementIndex + " + " + i);
+console.log("3: " + dwwStore.ipSidebarFirstElementIndex + " + " + i + " - " + length);
     var sectionStyles = [
         'grid-row: ' + sidebarGridRow
     ];

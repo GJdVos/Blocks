@@ -326,6 +326,7 @@ function positionFixedIpSidebar() {
     var ipIsSticky = ipSidebars[0].classList.contains(dwwClasses.ipSidebarIsSticky);
 
     var setSidebarSticky = !ipIsSticky && ipSidebarBottom >= ipWrapperBottom;
+console.log("3: " + setSidebarSticky + " | " + !ipIsSticky + " en " + ipSidebarBottom + " is groter dan of gelijk aan " + ipWrapperBottom);
     var setSidebarFixedOnTheWayBack = !ipIsFixed && ipIsSticky && ipSidebarTop >= dwwStore.headerHeight;
     var resetSidebar = ipIsFixed && ipWrapperTop >= dwwStore.headerHeight;
     var setSidebarFixed = !ipIsFixed && !ipIsSticky && ipSidebarTop <= dwwStore.headerHeight;

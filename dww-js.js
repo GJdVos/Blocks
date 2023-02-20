@@ -108,7 +108,6 @@ function dwwFunctions () {
     for (var i = 0; i < dwwElements.ipSections.length; i++) {
         if (dwwElements.ipSections[i].classList.contains(dwwClasses.ipWrapper)) {
             dwwStore.ipSidebarFirstElementIndex = i + 2;
-console.log("1: " + i + " + 2");
         }
     }
 
@@ -333,7 +332,7 @@ function positionFixedIpSidebar() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var ipSidebar = ipSidebars[i];
-
+console.log("1: " + ipSidebar.classList + " - " + i);
         if (i == 0) {
             dwwStore.ipSidebarFirstElementHeight = ipSidebar.getBoundingClientRect().height;
         } else if (i == 1) {
@@ -381,7 +380,7 @@ function positionIpSidebarWhenIsFixedOrSticky() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var sidebar = ipSidebars[i];
-
+console.log("1: " + ipSidebar.classList + " - " + i);
         if (!isMediumViewport()) {
             sidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             sidebar.removeAttribute('style');

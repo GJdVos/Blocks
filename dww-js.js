@@ -305,7 +305,7 @@ function positionFixedIpSidebar() {
     if (!isMediumViewport()) {
         return;
     }
-console.log("TEST");
+
     var ipSidebars = dwwElements.ipSidebars;
 
     if (ipSidebars.length == 0) {
@@ -340,6 +340,7 @@ console.log("TEST");
         }
 
         if (setSidebarSticky) {
+console.log("1");
             ipSidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             ipSidebar.classList.add(dwwClasses.ipSidebarIsSticky);
             ipSidebar.parentNode.parentNode.parentNode.parentNode.classList.add(dwwClasses.ipSidebarIsSticky);
@@ -367,6 +368,7 @@ console.log("TEST");
         }
 
         if (setSidebarFixed) {
+console.log("2");
             ipSidebar.classList.add(dwwClasses.ipSidebarIsFixed);
             ipSidebar.parentNode.parentNode.parentNode.parentNode.removeAttribute('style');
             addFixedIpSidebarStyles(ipSidebar, i);

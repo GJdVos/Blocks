@@ -380,7 +380,7 @@ function positionIpSidebarWhenIsFixedOrSticky() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var sidebar = ipSidebars[i];
-console.log("1: " + sidebar.classList + " - " + i);
+console.log("2: " + sidebar.classList + " - " + i);
         if (!isMediumViewport()) {
             sidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             sidebar.removeAttribute('style');
@@ -427,7 +427,7 @@ function addFixedIpSidebarStyles(ipSidebar, i) {
 
 function addAbsoluteIpSidebarStyles(sidebar, i) {
     var sidebarGridRow = dwwStore.ipSidebarFirstElementIndex + i;
-
+console.log("3: " + dwwStore.ipSidebarFirstElementIndex + " + " + i);
     var sectionStyles = [
         'grid-row: ' + sidebarGridRow
     ];

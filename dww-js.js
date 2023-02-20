@@ -154,10 +154,8 @@ function dwwHandleOnResizeWindow () {
  * Handle on scroll events.
  */
 function dwwHandleOnScroll () {
-console.log("scroll 1");
     positionFixedATSidebar();
     positionFixedIpSidebar();
-console.log("scroll 2");
 }
 
 /* ---- Fixed sidebar ---- */
@@ -329,7 +327,6 @@ function positionFixedIpSidebar() {
     var ipIsSticky = ipSidebars[0].classList.contains(dwwClasses.ipSidebarIsSticky);
 
     var setSidebarSticky = !ipIsSticky && ipSidebarBottom >= ipWrapperBottom;
-console.log("3: " + setSidebarSticky + " | " + !ipIsSticky + " en " + ipSidebarBottom + " is groter dan of gelijk aan " + ipWrapperBottom);
     var setSidebarFixedOnTheWayBack = !ipIsFixed && ipIsSticky && ipSidebarTop >= dwwStore.headerHeight;
     var resetSidebar = ipIsFixed && ipWrapperTop >= dwwStore.headerHeight;
     var setSidebarFixed = !ipIsFixed && !ipIsSticky && ipSidebarTop <= dwwStore.headerHeight;
@@ -344,7 +341,6 @@ console.log("3: " + setSidebarSticky + " | " + !ipIsSticky + " en " + ipSidebarB
         }
 
         if (setSidebarSticky) {
-console.log("1");
             ipSidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             ipSidebar.classList.add(dwwClasses.ipSidebarIsSticky);
             ipSidebar.parentNode.parentNode.parentNode.parentNode.classList.add(dwwClasses.ipSidebarIsSticky);
@@ -372,7 +368,6 @@ console.log("1");
         }
 
         if (setSidebarFixed) {
-console.log("2");
             ipSidebar.classList.add(dwwClasses.ipSidebarIsFixed);
             ipSidebar.parentNode.parentNode.parentNode.parentNode.removeAttribute('style');
             addFixedIpSidebarStyles(ipSidebar, i);

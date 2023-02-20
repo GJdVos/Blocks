@@ -107,6 +107,7 @@ function dwwFunctions () {
     dwwElements.ipSections = document.querySelector('.' + dwwClasses.ipPage).children;
     for (var i = 0; i < dwwElements.ipSections.length; i++) {
         if (dwwElements.ipSections[i].classList.contains(dwwClasses.ipWrapper)) {
+console.log("1: " + dwwElements.ipSections[i].classList);
             dwwStore.ipSidebarFirstElementIndex = i + 2;
         }
     }

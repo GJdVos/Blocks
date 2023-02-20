@@ -9,33 +9,33 @@ ONE.isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 document.documentElement.className += ONE.isTouch ? ' touch' : ' no-touch';
 
 $(document).ready(function() {
-  
+
 	/* Site search to GA */
-    $('.search input[type=search]').each(function(index) {
+	$('.search input[type=search]').each(function(index) {
 
-    	let searchTimeout = false;
+		let searchTimeout = false;
 
-    	$(this).on('input', function(){
+		$(this).on('input', function(){
 
-    		let _this = $(this);
+			let _this = $(this);
 
-    		if (searchTimeout) {
-    			clearTimeout(searchTimeout);
-    		}
+			if (searchTimeout) {
+				clearTimeout(searchTimeout);
+			}
 
-    		searchTimeout = setTimeout(function() {
-    			let searchTerms = '/script/search.php?q=' + _this.val();
+			searchTimeout = setTimeout(function() {
+				let searchTerms = '/script/search.php?q=' + _this.val();
 
-    	    	/* Bron: https://stackoverflow.com/questions/15744042/events-not-being-tracked-in-new-google-analytics-analytics-js-setup */
-        		if ("ga" in window) {
-            		tracker = ga.getAll()[0];
-            		if (tracker) {
-                		tracker.send('pageview', searchTerms);
-    	        	}
-        		}
-		    }, 500);
-	    });
-    });
+				/* Bron: https://stackoverflow.com/questions/15744042/events-not-being-tracked-in-new-google-analytics-analytics-js-setup */
+				if ("ga" in window) {
+					tracker = ga.getAll()[0];
+					if (tracker) {
+						tracker.send('pageview', searchTerms);
+					}
+				}
+			}, 500);
+		});
+	});
 
 	/* Form submit to GA */
 	$('form:not([data-form_type="search"])').each(function(index) {
@@ -43,7 +43,7 @@ $(document).ready(function() {
 
 			event.preventDefault();
 
-            let succesUrl = window.location + '?dwwform=succes';
+			let succesUrl = window.location + '?dwwform=succes';
 			let succesUrlPathname = window.location.pathname + '?dwwform=succes';
 
 			if ("ga" in window) {
@@ -53,10 +53,10 @@ $(document).ready(function() {
 				}
         	}
 
-            dataLayer.push({
-                'event': 'virtualPageview',
-                'pageUrl': succesUrl
-            });
+			dataLayer.push({
+				'event': 'virtualPageview',
+				'pageUrl': succesUrl
+			});
 		});
 	});
 });

@@ -155,6 +155,7 @@ function dwwHandleOnResizeWindow () {
 function dwwHandleOnScroll () {
     positionFixedATSidebar();
     positionFixedIpSidebar();
+console.log("scroll?");
 }
 
 /* ---- Fixed sidebar ---- */

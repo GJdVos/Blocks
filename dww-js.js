@@ -380,7 +380,7 @@ function positionIpSidebarWhenIsFixedOrSticky() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var sidebar = ipSidebars[i];
-console.log("1: " + ipSidebar.classList + " - " + i);
+console.log("1: " + sidebar.classList + " - " + i);
         if (!isMediumViewport()) {
             sidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             sidebar.removeAttribute('style');

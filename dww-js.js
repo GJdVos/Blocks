@@ -128,6 +128,7 @@ function dwwFunctions () {
     isATSidebarHigher();
     positionFixedATSidebar();
     positionFixedIpSidebar();
+	dwwHandleOnScroll();
 }
 
 /* ---- Event handling ---- */

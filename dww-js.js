@@ -9,6 +9,8 @@ ONE.isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 document.documentElement.className += ONE.isTouch ? ' touch' : ' no-touch';
 
 /* Detect if Safari */
+/* Bron: https://www.geeksforgeeks.org/how-to-detect-the-user-browser-safari-chrome-ie-firefox-and-opera-using-javascript/ */
+let userAgentString = navigator.userAgent;
 let chromeAgent = userAgentString.indexOf("Chrome") > -1;
 let safariAgent = userAgentString.indexOf("Safari") > -1;
 if ((chromeAgent) && (safariAgent)) safariAgent = false;

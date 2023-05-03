@@ -9,9 +9,10 @@ ONE.isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 document.documentElement.className += ONE.isTouch ? ' touch' : ' no-touch';
 
 /* Detect if Safari */
+let chromeAgent = userAgentString.indexOf("Chrome") > -1;
 let safariAgent = userAgentString.indexOf("Safari") > -1;
 if ((chromeAgent) && (safariAgent)) safariAgent = false;
-if (safariAgent) { document.documentElement.classList.add("is-safari") }
+if (safariAgent) { document.documentElement.classList.add("is-safari") };
 
 $(document).ready(function() {
 

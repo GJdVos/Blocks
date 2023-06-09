@@ -148,7 +148,7 @@ function dwwFunctions () {
 	}
 
 	// Update IP sidebar bij review slide
-	var ipSidebarReviews = document.querySelectorAll('.' + dwwClasses.ipSidebarReviews + 'article');
+	var ipSidebarReviews = document.querySelectorAll('.' + dwwClasses.ipSidebarReviews + ' article');
 	for (var i = 0; i < ipSidebarReviews.length; i++) {
 	    onClassChange(ipSidebarReviews[i], (node) => {
 		    node.classList.contains('active')

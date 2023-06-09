@@ -151,9 +151,7 @@ function dwwFunctions () {
 	var ipSidebarReviews = document.querySelectorAll('.' + dwwClasses.ipSidebarReviews + ' article');
 	for (var i = 0; i < ipSidebarReviews.length; i++) {
 	    onClassChange(ipSidebarReviews[i], (node) => {
-		    node.classList.contains('active')
-			    ? positionFixedIpSidebar()
-			    : positionFixedIpSidebar();
+			positionFixedIpSidebar();
 	    });
     }
 
@@ -370,7 +368,6 @@ function positionFixedIpSidebar() {
             dwwStore.ipSidebarFirstElementHeight = ipSidebar.getBoundingClientRect().height;
         } else if (i == 1) {
             dwwStore.ipSidebarSecondElementHeight = ipSidebar.getBoundingClientRect().height;
-console.log('#1: ' + dwwStore.ipSidebarSecondElementHeight);
         }
 
         if (setSidebarSticky) {

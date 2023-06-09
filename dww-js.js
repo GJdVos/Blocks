@@ -121,24 +121,24 @@ var dwwStore = {
 */
 function dwwFunctions () {
 
-    // Fixed 3/1
+	// Fixed 3/1
 	dwwElements.atFixedSidebars = document.querySelectorAll('.' + dwwClasses.atFixedSidebar);
 
-    // Infopagina 2.023
-    dwwElements.ipSidebars = document.querySelectorAll('.' + dwwClasses.ipSidebar);
-    dwwElements.ipSections = document.querySelector('.' + dwwClasses.ipPage).children;
-    for (var i = 0; i < dwwElements.ipSections.length; i++) {
-        if (dwwElements.ipSections[i].classList.contains(dwwClasses.ipWrapper)) {
-            dwwStore.ipSidebarFirstElementIndex = i + 2;
-        }
-    }
+	// Infopagina 2.023
+	dwwElements.ipSidebars = document.querySelectorAll('.' + dwwClasses.ipSidebar);
+	dwwElements.ipSections = document.querySelector('.' + dwwClasses.ipPage).children;
+	for (var i = 0; i < dwwElements.ipSections.length; i++) {
+		if (dwwElements.ipSections[i].classList.contains(dwwClasses.ipWrapper)) {
+			dwwStore.ipSidebarFirstElementIndex = i + 2;
+		}
+	}
 
-    var headerBlocks = document.querySelectorAll('header');
-    var lastHeaderBlock = headerBlocks.length - 1;
-    dwwStore.headerHeight = headerBlocks[lastHeaderBlock] ? Math.ceil(headerBlocks[lastHeaderBlock].getBoundingClientRect().height) : 0;
+	var headerBlocks = document.querySelectorAll('header');
+	var lastHeaderBlock = headerBlocks.length - 1;
+	dwwStore.headerHeight = headerBlocks[lastHeaderBlock] ? Math.ceil(headerBlocks[lastHeaderBlock].getBoundingClientRect().height) : 0;
 
 	// Call functions
-    dwwHandleOnResizeWindow(); // make sure they are called at least once
+	dwwHandleOnResizeWindow(); // make sure they are called at least once
 
     // Event handlers
 	if (window.addEventListener) {
@@ -147,9 +147,9 @@ function dwwFunctions () {
 		window.addEventListener('scroll', dwwHandleOnScroll, false);
 	}
 
-    // Update IP sidebar bij review slide
-    var ipSidebarReviews = document.querySelectorAll('.' + dwwClasses.ipSidebarReviews + 'article');
-    for (var i = 0; i < ipSidebarReviews.length; i++) {
+	// Update IP sidebar bij review slide
+	var ipSidebarReviews = document.querySelectorAll('.' + dwwClasses.ipSidebarReviews + 'article');
+	for (var i = 0; i < ipSidebarReviews.length; i++) {
 	    onClassChange(ipSidebarReviews[i], (node) => {
 		    node.classList.contains('active')
 			    ? positionFixedIpSidebar()
@@ -157,9 +157,9 @@ function dwwFunctions () {
 	    });
     }
 
-    isATSidebarHigher();
-    positionFixedATSidebar();
-    positionFixedIpSidebar();
+	isATSidebarHigher();
+	positionFixedATSidebar();
+	positionFixedIpSidebar();
 	dwwHandleOnScroll();
 }
 
@@ -176,9 +176,9 @@ function dwwHandleOnResizeWindow () {
 	}
 
 	dwwStore.resizeTo = setTimeout(function(){
-        isATSidebarHigher();
-        positionSidebarWhenIsFixedOrSticky();
-        positionIpSidebarWhenIsFixedOrSticky();
+		isATSidebarHigher();
+		positionSidebarWhenIsFixedOrSticky();
+		positionIpSidebarWhenIsFixedOrSticky();
 	}, 100);
 }
 
@@ -186,15 +186,15 @@ function dwwHandleOnResizeWindow () {
  * Handle on scroll events.
  */
 function dwwHandleOnScroll () {
-    positionFixedATSidebar();
-    positionFixedIpSidebar();
+	positionFixedATSidebar();
+	positionFixedIpSidebar();
 }
 
 /* ---- Fixed sidebar ---- */
 function positionFixedATSidebar() {
-    if (!isMediumViewport()) {
-        return;
-    }
+	if (!isMediumViewport()) {
+		return;
+	}
 
     var sidebars = dwwElements.atFixedSidebars;
 

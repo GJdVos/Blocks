@@ -335,7 +335,6 @@ function addAbsoluteSidebarStyles(sidebar) {
 
 /* ---- Infopagina fixed sidebar ---- */
 function positionFixedIpSidebar() {
-console.log('IP functie wordt aangeroepen.');
     if (!isMediumViewport()) {
         return;
     }
@@ -371,6 +370,7 @@ console.log('IP functie wordt aangeroepen.');
             dwwStore.ipSidebarFirstElementHeight = ipSidebar.getBoundingClientRect().height;
         } else if (i == 1) {
             dwwStore.ipSidebarSecondElementHeight = ipSidebar.getBoundingClientRect().height;
+console.log('#1: ' + dwwStore.ipSidebarSecondElementHeight);
         }
 
         if (setSidebarSticky) {

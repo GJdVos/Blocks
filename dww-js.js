@@ -335,6 +335,7 @@ function addAbsoluteSidebarStyles(sidebar) {
 
 /* ---- Infopagina fixed sidebar ---- */
 function positionFixedIpSidebar() {
+console.log('IP functie wordt aangeroepen.');
     if (!isMediumViewport()) {
         return;
     }

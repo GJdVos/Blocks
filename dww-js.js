@@ -16,6 +16,19 @@ let safariAgent = userAgentString.indexOf("Safari") > -1;
 if ((chromeAgent) && (safariAgent)) safariAgent = false;
 if (safariAgent) { document.documentElement.classList.add("is-safari") };
 
+/* Detect class change */
+function onClassChange(element, callback) {
+	const observer = new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+				callback(mutation.target);
+			}
+		});
+	});
+	observer.observe(element, { attributes: true });
+	return observer.disconnect;
+}
+
 $(document).ready(function() {
 
 	/* Site search to GA */
@@ -84,6 +97,7 @@ var dwwClasses = {
     ipPage: 'page',
     ipWrapper: 'dww-6515-1-0',
     ipSidebar: 'dww-infopagina-sidebar',
+    ipSidebarReviews: 'dww-6517-1-0',
     ipSidebarIsFixed: 'infopagina-sidebar--isFixed',
     ipSidebarIsSticky: 'infopagina-sidebar--isSticky'
 };
@@ -132,6 +146,16 @@ function dwwFunctions () {
 		window.addEventListener('resize', dwwHandleOnResizeWindow, false);
 		window.addEventListener('scroll', dwwHandleOnScroll, false);
 	}
+
+    // Update IP sidebar bij review slide
+    var ipSidebarReviews = document.querySelectorAll('.' + dwwClasses.ipSidebarReviews + 'article');
+    for (var i = 0; i < ipSidebarReviews.length; i++) {
+	    onClassChange(ipSidebarReviews[i], (node) => {
+		    node.classList.contains('active')
+			    ? positionFixedIpSidebar()
+			    : positionFixedIpSidebar();
+	    });
+    }
 
     isATSidebarHigher();
     positionFixedATSidebar();

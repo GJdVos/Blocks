@@ -135,7 +135,8 @@ function dwwFunctions () {
 
 	var headerBlocks = document.querySelectorAll('header');
 	var lastHeaderBlock = headerBlocks.length - 1;
-	dwwStore.headerHeight = headerBlocks[lastHeaderBlock] ? Math.ceil(headerBlocks[lastHeaderBlock].getBoundingClientRect().height) : 0;
+    var headerBlockRow = headerBlocks[lastHeaderBlock].querySelector('.row-1');
+	dwwStore.headerHeight = headerBlockRow ? Math.ceil(headerBlockRow.getBoundingClientRect().height) : 0;
 
 	// Call functions
 	dwwHandleOnResizeWindow(); // make sure they are called at least once

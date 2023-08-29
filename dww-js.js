@@ -134,9 +134,14 @@ function dwwFunctions () {
 	}
 
 	var headerBlocks = document.querySelectorAll('header');
-	var lastHeaderBlock = headerBlocks.length - 1;
-	var headerBlockRow = headerBlocks[lastHeaderBlock].querySelector('.row-1');
-	dwwStore.headerHeight = headerBlockRow ? Math.ceil(headerBlockRow.getBoundingClientRect().height) : 0;
+
+    if (headerBlocks.length == 0) {
+        dwwStore.headerHeight = 0;
+    } else {
+        var lastHeaderBlock = headerBlocks.length - 1;
+        var headerBlockRow = headerBlocks[lastHeaderBlock].querySelector('.row-1');
+	    dwwStore.headerHeight = headerBlockRow ? Math.ceil(headerBlockRow.getBoundingClientRect().height) : 0;
+    }
 
 	// Call functions
 	dwwHandleOnResizeWindow(); // make sure they are called at least once

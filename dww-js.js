@@ -347,13 +347,16 @@ function positionFixedIpSidebar() {
     var lastIpSidebar = ipSidebars.length - 1;
     var ipSidebarTop = ipSidebars[0].getBoundingClientRect().top;
     var ipSidebarBottom = ipSidebars[lastIpSidebar].getBoundingClientRect().bottom;
-    var ipSidebarHeight = ipSidebars[0].getBoundingClientRect().height + ipSidebars[1].getBoundingClientRect().height + ipSidebars[2].getBoundingClientRect().height;
 
     dwwStore.ipSidebarCardPadding = Number(getComputedStyle(ipSidebars[lastIpSidebar].parentNode).getPropertyValue('padding-top').replace('px',''));
 
     var ipWrapper = document.querySelector('.dww-infopagina-wrapper');
     var ipWrapperTop = ipWrapper.getBoundingClientRect().top;
     var ipWrapperBottom = ipWrapper.getBoundingClientRect().bottom;
+
+    for (var i = 0; i < ipSidebars.length; i++) {
+        var ipSidebarHeight =+ ipSidebars[i].getBoundingClientRect().height;
+    }
 
     if (ipWrapper.getBoundingClientRect().height <= ipSidebarHeight) {
         return;

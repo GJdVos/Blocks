@@ -352,16 +352,17 @@ function positionFixedIpSidebar() {
     var lastIpSidebar = ipSidebars.length - 1;
     var ipSidebarTop = ipSidebars[0].getBoundingClientRect().top;
     var ipSidebarBottom = ipSidebars[lastIpSidebar].getBoundingClientRect().bottom;
+    var ipSidebarHeight = 0;
+
+    for (var i = 0; i < ipSidebars.length; i++) {
+        var ipSidebarHeight = ipSidebarHeight + ipSidebars[i].getBoundingClientRect().height;
+    }
 
     dwwStore.ipSidebarCardPadding = Number(getComputedStyle(ipSidebars[lastIpSidebar].parentNode).getPropertyValue('padding-top').replace('px',''));
 
     var ipWrapper = document.querySelector('.dww-infopagina-wrapper');
     var ipWrapperTop = ipWrapper.getBoundingClientRect().top;
     var ipWrapperBottom = ipWrapper.getBoundingClientRect().bottom;
-
-    for (var i = 0; i < ipSidebars.length; i++) {
-        var ipSidebarHeight = ipSidebarHeight + ipSidebars[i].getBoundingClientRect().height;
-    }
 
 console.log(ipWrapper.getBoundingClientRect().height + ' <= ' + ipSidebarHeight);
 

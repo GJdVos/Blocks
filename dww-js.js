@@ -360,7 +360,7 @@ function positionFixedIpSidebar() {
     var ipWrapperBottom = ipWrapper.getBoundingClientRect().bottom;
 
     for (var i = 0; i < ipSidebars.length; i++) {
-        var ipSidebarHeight =+ ipSidebars[i].getBoundingClientRect().height;
+        var ipSidebarHeight = ipSidebarHeight + ipSidebars[i].getBoundingClientRect().height ;
     }
 
     if (ipWrapper.getBoundingClientRect().height <= ipSidebarHeight) {

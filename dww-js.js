@@ -364,8 +364,6 @@ function positionFixedIpSidebar() {
     var ipWrapperTop = ipWrapper.getBoundingClientRect().top;
     var ipWrapperBottom = ipWrapper.getBoundingClientRect().bottom;
 
-console.log(ipWrapper.getBoundingClientRect().height + ' <= ' + ipSidebarHeight);
-
     if (ipWrapper.getBoundingClientRect().height <= ipSidebarHeight) {
         return;
     }

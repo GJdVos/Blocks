@@ -30,34 +30,6 @@ function onClassChange(element, callback) {
 }
 
 $(document).ready(function() {
-
-	/* Site search to GA */
-	$('.search input[type=search]').each(function(index) {
-
-		let searchTimeout = false;
-
-		$(this).on('input', function(){
-
-			let _this = $(this);
-
-			if (searchTimeout) {
-				clearTimeout(searchTimeout);
-			}
-
-			searchTimeout = setTimeout(function() {
-				let searchTerms = '/script/search.php?q=' + _this.val();
-
-				/* Bron: https://stackoverflow.com/questions/15744042/events-not-being-tracked-in-new-google-analytics-analytics-js-setup */
-				if ("ga" in window) {
-					tracker = ga.getAll()[0];
-					if (tracker) {
-						tracker.send('pageview', searchTerms);
-					}
-				}
-			}, 500);
-		});
-	});
-
 	/* Form submit to GA */
 	$('form:not([data-form_type="search"])').each(function(index) {
 		$(this).on('submit', function(event){

@@ -29,29 +29,31 @@ function onClassChange(element, callback) {
 	return observer.disconnect;
 }
 
-$(document).ready(function() {
-	/* Form submit to GA */
-	$('form:not([data-form_type="search"])').each(function(index) {
-		$(this).on('submit', function(event){
+document.addEventListener('DOMContentLoaded', function() {
+    // Form submit to GA
+    document.querySelectorAll('form:not([data-form_type="search"])').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-			event.preventDefault();
+            const succesUrl = window.location + '?dwwform=succes';
+            const succesUrlPathname = window.location.pathname + '?dwwform=succes';
 
-			let succesUrl = window.location + '?dwwform=succes';
-			let succesUrlPathname = window.location.pathname + '?dwwform=succes';
+            // Google Analytics tracking
+            if ("ga" in window) {
+                const tracker = ga.getAll()[0];
+                if (tracker) {
+                    tracker.send('pageview', succesUrlPathname);
+                }
+            }
 
-			if ("ga" in window) {
-				tracker = ga.getAll()[0];
-				if (tracker) {
-					tracker.send('pageview', succesUrlPathname);
-				}
-        	}
-
-			dataLayer.push({
-				'event': 'virtualPageview',
-				'pageUrl': succesUrl
-			});
-		});
-	});
+            // DataLayer push
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({
+                'event': 'virtualPageview',
+                'pageUrl': succesUrl
+            });
+        });
+    });
 });
 
 /* ---- dWW Functies ---- */
@@ -478,6 +480,6 @@ function fixedSidebar () {
     dwwFunctions();
 }
 
-if($.isReady) {
-	dwwFunctions();
+if (document.readyState === 'complete') {
+    dwwFunctions();
 }

@@ -30,6 +30,13 @@ function onClassChange(element, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    /* Year */
+    const yearElement = document.querySelector('.lib-block-40-1 .col-1 .text-6 p');
+console.log(yearElement);
+    if (yearElement) {
+        yearElement.textContent = yearElement.textContent.replace(/20\d{2}/, new Date().getFullYear());
+    }
+	
     // Form submit to GA
     document.querySelectorAll('form:not([data-form_type="search"])').forEach(form => {
         form.addEventListener('submit', function(event) {
@@ -482,11 +489,4 @@ function fixedSidebar () {
 
 if (document.readyState === 'complete') {
     dwwFunctions();
-
-    /* Year */
-    const yearElement = document.querySelector('.lib-block-40-1 .col-1 .text-6 p');
-console.log(yearElement);
-    if (yearElement) {
-        yearElement.textContent = yearElement.textContent.replace(/20\d{2}/, new Date().getFullYear());
-    }
 }

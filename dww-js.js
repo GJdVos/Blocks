@@ -482,6 +482,10 @@ function fixedSidebar () {
 
 if (document.readyState === 'complete') {
     dwwFunctions();
+
     /* Year */
-    document.querySelector('.lib-block-40-1 .col-1 .text-6 p').textContent = document.querySelector('.lib-block-40-1 .col-1 .text-6 p').textContent.replace(/20\d{2}/, new Date().getFullYear());
+    const yearElement = document.querySelector('.lib-block-40-1 .col-1 .text-6 p');
+    if (yearElement) {
+        yearElement.textContent = yearElement.textContent.replace(/20\d{2}/, new Date().getFullYear());
+    }
 }

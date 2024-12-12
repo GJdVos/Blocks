@@ -1,8 +1,5 @@
 /* dWW js V1.6 */
 
-/* Year */
-document.querySelector('.lib-block-40-1 .col-1 .text-6 p').textContent = document.querySelector('.lib-block-40-1 .col-1 .text-6 p').textContent.replace(/20\d{2}/, new Date().getFullYear());
-
 /* Detect if Javascript is enabled */
 document.documentElement.classList.add("has-js")
 
@@ -485,4 +482,6 @@ function fixedSidebar () {
 
 if (document.readyState === 'complete') {
     dwwFunctions();
+    /* Year */
+    document.querySelector('.lib-block-40-1 .col-1 .text-6 p').textContent = document.querySelector('.lib-block-40-1 .col-1 .text-6 p').textContent.replace(/20\d{2}/, new Date().getFullYear());
 }

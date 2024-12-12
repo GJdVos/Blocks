@@ -485,6 +485,7 @@ if (document.readyState === 'complete') {
 
     /* Year */
     const yearElement = document.querySelector('.lib-block-40-1 .col-1 .text-6 p');
+console.log(yearElement);
     if (yearElement) {
         yearElement.textContent = yearElement.textContent.replace(/20\d{2}/, new Date().getFullYear());
     }

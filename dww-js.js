@@ -320,10 +320,11 @@ function addAbsoluteSidebarStyles(sidebar) {
 /* ---- Infopagina fixed sidebar ---- */
 function positionFixedIpSidebar() {
     var ipSidebars = dwwElements.ipSidebars;
-    var sidebarStartWidth = parseInt(document.querySelector('[data-infopagina-sidebar-start]').getAttribute('data-infopagina-sidebar-start'), 10);
+    var sidebarElement = document.querySelector('[data-infopagina-sidebar-start]');
+    var sidebarStartWidth = sidebarElement ? parseInt(sidebarElement.getAttribute('data-infopagina-sidebar-start'), 10) : null;
 
-    if (!isMediumViewport() || ipSidebars.length == 0 || window.innerWidth < sidebarStartWidth) {
-        return;
+    if (!isMediumViewport() || ipSidebars.length === 0 || (sidebarStartWidth !== null && window.innerWidth < sidebarStartWidth)) {
+    	return;
     }
 
     var lastIpSidebar = ipSidebars.length - 1;
@@ -403,9 +404,10 @@ function positionIpSidebarWhenIsFixedOrSticky() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var sidebar = ipSidebars[i];
-		var sidebarStartWidth = parseInt(document.querySelector('[data-infopagina-sidebar-start]').getAttribute('data-infopagina-sidebar-start'), 10);
+	var sidebarElement = document.querySelector('[data-infopagina-sidebar-start]');
+	var sidebarStartWidth = sidebarElement ? parseInt(sidebarElement.getAttribute('data-infopagina-sidebar-start'), 10) : null;
 
-        if (!isMediumViewport() || window.innerWidth < sidebarStartWidth) {
+        if (!isMediumViewport() || (sidebarStartWidth !== null && window.innerWidth < sidebarStartWidth)) {
             sidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             sidebar.removeAttribute('style');
             return;

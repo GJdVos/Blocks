@@ -319,13 +319,11 @@ function addAbsoluteSidebarStyles(sidebar) {
 
 /* ---- Infopagina fixed sidebar ---- */
 function positionFixedIpSidebar() {
-    if (!isMediumViewport()) {
-        return;
-    }
-
     var ipSidebars = dwwElements.ipSidebars;
+	var sidebarStartWidth = parseInt(document.querySelector('[data-infopagina-sidebar-start]').getAttribute('data-infopagina-sidebar-start'), 10);
 
-    if (ipSidebars.length == 0) {
+
+    if (!isMediumViewport() || ipSidebars.length == 0 || window.innerWidth <= sidebarStartWidth) {
         return;
     }
 
@@ -406,8 +404,9 @@ function positionIpSidebarWhenIsFixedOrSticky() {
 
     for (var i = 0; i < ipSidebars.length; i++) {
         var sidebar = ipSidebars[i];
+		var sidebarStartWidth = parseInt(document.querySelector('[data-infopagina-sidebar-start]').getAttribute('data-infopagina-sidebar-start'), 10);
 
-        if (!isMediumViewport()) {
+        if (!isMediumViewport() || window.innerWidth <= sidebarStartWidth) {
             sidebar.classList.remove(dwwClasses.ipSidebarIsFixed);
             sidebar.removeAttribute('style');
             return;

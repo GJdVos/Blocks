@@ -322,7 +322,7 @@ function positionFixedIpSidebar() {
     var ipSidebars = dwwElements.ipSidebars;
 	var sidebarStartWidth = parseInt(document.querySelector('[data-infopagina-sidebar-start]').getAttribute('data-infopagina-sidebar-start'), 10);
 
-
+console.log(window.innerWidth + ' <= ' + sidebarStartWidth);
     if (!isMediumViewport() || ipSidebars.length == 0 || window.innerWidth <= sidebarStartWidth) {
         return;
     }

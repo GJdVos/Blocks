@@ -29,13 +29,7 @@ function onClassChange(element, callback) {
 	return observer.disconnect;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    /* Year */
-    const yearElement = document.querySelector('.dww-40 .col-1 .text-6 p, .lib-block-40-1 .col-1 .text-6 p, .lib-block-40-2 .col-1 .text-6 p, .block-13-1 .col-1 .text-6 p, .lib-block-5164-2 .col-4 .text-6 p, .dww-40-1-0 .col-1 .text-6 p, [id^="lib-block-40"] .col-1 .text-6 p');
-    if (yearElement) {
-        yearElement.textContent = yearElement.textContent.replace(/20\d{2}/, new Date().getFullYear());
-    }
-	
+document.addEventListener('DOMContentLoaded', function() {	
     // Form submit to GA
     document.querySelectorAll('form:not([data-form_type="search"])').forEach(form => {
         form.addEventListener('submit', function(event) {
